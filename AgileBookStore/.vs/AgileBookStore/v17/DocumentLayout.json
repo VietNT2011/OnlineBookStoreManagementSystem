@@ -3,48 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\views\\product\\productall.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:views\\product\\productall.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\views\\product\\productdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:views\\product\\productdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\migrations\\agilebookstorecontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:migrations\\agilebookstorecontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\areas\\identity\\data\\agilebookstoreuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:areas\\identity\\data\\agilebookstoreuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\areas\\identity\\data\\agilebookstorecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:areas\\identity\\data\\agilebookstorecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|c:\\users\\ntv14\\desktop\\onlinebookstoremanagementsystem\\agilebookstore\\migrations\\20240402174720_initial create.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{990665E6-BEB5-4AC7-BAC1-CC499094D0C1}|AgileBookStore.csproj|solutionrelative:migrations\\20240402174720_initial create.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,147 +46,116 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Category.cs",
-              "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Models\\Category.cs",
-              "RelativeDocumentMoniker": "Models\\Category.cs",
-              "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Models\\Category.cs",
-              "RelativeToolTip": "Models\\Category.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T13:00:01.681Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ErrorViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Models\\ErrorViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\ErrorViewModel.cs",
-              "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Models\\ErrorViewModel.cs",
-              "RelativeToolTip": "Models\\ErrorViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T13:00:01.127Z",
-              "EditorCaption": ""
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Views\\_ViewImports.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-02T18:19:00.142Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEkAAAANAAAA",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAqwDkAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-02T10:34:13.255Z",
+              "WhenOpened": "2024-04-02T18:08:58.887Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAALsAAAAAAAAAAAAAAA4AAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-02T10:16:14.155Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAAwBQAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T10:13:59.3Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "Controllers\\ProductController.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAQwA8AAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T10:13:58.59Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ProductDetail.cshtml",
-              "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Views\\Product\\ProductDetail.cshtml",
-              "RelativeDocumentMoniker": "Views\\Product\\ProductDetail.cshtml",
-              "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Views\\Product\\ProductDetail.cshtml",
-              "RelativeToolTip": "Views\\Product\\ProductDetail.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-02T10:13:51.673Z",
-              "EditorCaption": ""
+              "Title": "AgileBookStoreContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Migrations\\AgileBookStoreContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Migrations\\AgileBookStoreContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Migrations\\AgileBookStoreContextModelSnapshot.cs",
+              "RelativeToolTip": "Migrations\\AgileBookStoreContextModelSnapshot.cs",
+              "ViewState": "AQIAADoAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T17:52:02.55Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ProductAll.cshtml",
-              "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Views\\Product\\ProductAll.cshtml",
-              "RelativeDocumentMoniker": "Views\\Product\\ProductAll.cshtml",
-              "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Views\\Product\\ProductAll.cshtml",
-              "RelativeToolTip": "Views\\Product\\ProductAll.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACcAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-02T10:13:15.46Z",
-              "EditorCaption": ""
+              "Title": "Register.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ViewState": "AQIAAHEAAAAAAAAAAAAUwHgAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T17:49:20.049Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Product.cs",
-              "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Models\\Product.cs",
-              "RelativeDocumentMoniker": "Models\\Product.cs",
-              "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Models\\Product.cs",
-              "RelativeToolTip": "Models\\Product.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T10:12:47.865Z",
-              "EditorCaption": ""
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAABEAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-02T17:48:46.083Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "_ValidationScriptsPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-02T10:40:00.532Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-02T17:48:45.062Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAA3AAAA",
+              "Title": "20240402174720_Initial Create.cs",
+              "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Migrations\\20240402174720_Initial Create.cs",
+              "RelativeDocumentMoniker": "Migrations\\20240402174720_Initial Create.cs",
+              "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Migrations\\20240402174720_Initial Create.cs",
+              "RelativeToolTip": "Migrations\\20240402174720_Initial Create.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAQwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T10:20:21.184Z"
+              "WhenOpened": "2024-04-02T17:47:20.785Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AgileBookStoreUser.cs",
+              "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Areas\\Identity\\Data\\AgileBookStoreUser.cs",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Data\\AgileBookStoreUser.cs",
+              "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Areas\\Identity\\Data\\AgileBookStoreUser.cs",
+              "RelativeToolTip": "Areas\\Identity\\Data\\AgileBookStoreUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T17:46:59.472Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AgileBookStoreContext.cs",
+              "DocumentMoniker": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Areas\\Identity\\Data\\AgileBookStoreContext.cs",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Data\\AgileBookStoreContext.cs",
+              "ToolTip": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\Areas\\Identity\\Data\\AgileBookStoreContext.cs",
+              "RelativeToolTip": "Areas\\Identity\\Data\\AgileBookStoreContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T17:46:57.51Z"
             }
           ]
         }
