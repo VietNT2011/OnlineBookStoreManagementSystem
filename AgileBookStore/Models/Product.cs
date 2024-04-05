@@ -12,7 +12,7 @@ namespace AgileBookStore.Models
         public string NameProduct { get; set; } = "New Book";
 
         [Required(ErrorMessage = "Please enter the product Price.")]
-        public Decimal Price { get; set; } = 99999;
+        public int Price { get; set; } = 99999;
         [Required(ErrorMessage = "Please enter the valid value.")]
         public string Author { get; set; } = "Anonymous";
         [Required(ErrorMessage = "Please enter the valid value.")]

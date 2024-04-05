@@ -1,4 +1,5 @@
 ﻿using AgileBookStore.Areas.Identity.Data;
+using AgileBookStore.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -11,8 +12,10 @@ public class AgileBookStoreContext : IdentityDbContext<AgileBookStoreUser>
         : base(options)
     {
     }
+	public DbSet<Product> Products { get; set; }
+	public DbSet<Category> Categories { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder builder)
+	protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
         // Customize the ASP.NET Identity model and override the defaults if needed.

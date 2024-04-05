@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AgileBookStore.Data;
 using AgileBookStore.Areas.Identity.Data;
+using AgileBookStore.Models;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("AgileBookStoreContextConnection") ?? throw new InvalidOperationException("Connection string 'AgileBookStoreContextConnection' not found.");
 
@@ -33,6 +34,12 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-app.MapRazorPages();
 
+//app.MapControllerRoute(
+//        name: "productDetail",
+//        pattern: "Product/ProductDetail/{id}",
+//        defaults: new { controller = "Product", action = "ProductDetail" });
+
+app.MapRazorPages();
+SeedData.EnsurePopulated(app);
 app.Run();

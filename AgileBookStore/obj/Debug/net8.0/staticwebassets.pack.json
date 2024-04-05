@@ -469,6 +469,22 @@
       "PackagePath": "staticwebassets\\images\\banner-09.jpg"
     },
     {
+      "Id": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\images\\banner1.png",
+      "PackagePath": "staticwebassets\\images\\banner1.png"
+    },
+    {
+      "Id": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\images\\banner2.png",
+      "PackagePath": "staticwebassets\\images\\banner2.png"
+    },
+    {
+      "Id": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\images\\banner3.png",
+      "PackagePath": "staticwebassets\\images\\banner3.png"
+    },
+    {
+      "Id": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\images\\banner4.jpg",
+      "PackagePath": "staticwebassets\\images\\banner4.jpg"
+    },
+    {
       "Id": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\images\\bg-01.jpg",
       "PackagePath": "staticwebassets\\images\\bg-01.jpg"
     },
