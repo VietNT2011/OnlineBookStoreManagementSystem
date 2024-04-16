@@ -17,7 +17,7 @@ namespace AgileBookStore.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.3")
+                .HasAnnotation("ProductVersion", "8.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -152,6 +152,38 @@ namespace AgileBookStore.Migrations
                     b.HasKey("IdProduct");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("AgileBookStore.Models.ShoppingCart", b =>
+                {
+                    b.Property<int>("IdShoppingCart")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdShoppingCart"));
+
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IdProduct")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductIdProduct")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("IdShoppingCart");
+
+                    b.HasIndex("ProductIdProduct");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ShoppingCarts");
                 });
 
             modelBuilder.Entity("CategoryProduct", b =>
@@ -304,6 +336,21 @@ namespace AgileBookStore.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("AgileBookStore.Models.ShoppingCart", b =>
+                {
+                    b.HasOne("AgileBookStore.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductIdProduct");
+
+                    b.HasOne("AgileBookStore.Areas.Identity.Data.AgileBookStoreUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CategoryProduct", b =>

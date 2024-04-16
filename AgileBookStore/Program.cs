@@ -12,7 +12,11 @@ builder.Services.AddDefaultIdentity<AgileBookStoreUser>(options => options.SignI
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 builder.Services.AddRazorPages();
+
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -26,6 +30,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseSession();
 
 app.UseRouting();
 
@@ -35,11 +40,8 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-//app.MapControllerRoute(
-//        name: "productDetail",
-//        pattern: "Product/ProductDetail/{id}",
-//        defaults: new { controller = "Product", action = "ProductDetail" });
-
 app.MapRazorPages();
+
 SeedData.EnsurePopulated(app);
+
 app.Run();
