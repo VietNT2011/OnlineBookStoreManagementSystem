@@ -1,0 +1,98 @@
+﻿@model IEnumerable<AgileBookStore.Models.ViewModels.ShoppingCartViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+	.table_head th {
+		width: calc(100% / 8); /* Chia đều cho số cột (8 cột trong trường hợp này) */
+		text-align: center;
+	}
+
+	.table_row td {
+		width: calc(100% / 8); /* Chia đều cho số cột (8 cột trong trường hợp này) */
+	}
+</style>
+<div class="m-l-25 m-r--38 m-lr-0-xl">
+	<div class="wrap-table-shopping-cart">
+		<table class="table-shopping-cart">
+			<tbody>
+				<tr class="table_head">
+					<th class="column-1">Product</th>
+					<th class="column-2"></th>
+					<th class="column-3">Price</th>
+					<th class="column-4">Quantity</th>
+					<th class="column-5">Total</th>
+					<th class="column-6">Check</th> <!-- Checkbox column -->
+					<th class="column-8">Delete</th> <!-- Delete button column -->
+				</tr>
+
+				@foreach (var item in Model)
+				{
+					<tr class="table_row">
+						<td class="column-1">
+							<div class="how-itemcart1">
+								<img src="@item.Product.imageurl1" alt="IMG">
+							</div>
+						</td>
+						<td class="column-2">@item.Product.NameProduct</td>
+						<td class="column-3">@item.Product.Price.ToString("N0") VND</td>
+						<td class="column-4">
+							<form asp-controller="ShoppingCarts" asp-action="Update" method="post">
+								
+								<input type="hidden" name="id" value="@item.IdShoppingCart" />
+
+								
+								<div class="wrap-num-product flex-w m-l-auto m-r-0">
+									<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+										<i class="fs-16 zmdi zmdi-minus"></i>
+									</div>
+									
+									<input class="mtext-104 cl3 txt-center num-product" type="number" name="quantity" value="@item.Quantity">
+									<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+										<i class="fs-16 zmdi zmdi-plus"></i>
+									</div>
+								</div>
+
+								<!-- Nút "Update" để gửi form -->
+								<button type="submit" class=" bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">Update</button>
+							</form>
+						</td>
+						@{
+							int total = 0;
+							total = item.Quantity * item.Product.Price;
+						}
+						<td class="column-5">@total.ToString("N0") VND</td>
+						<td class="column-6">
+							<input type="checkbox" id="@item.IdShoppingCart" name="check_@item.IdShoppingCart">
+						</td>
+						<td class="column-8">
+							<form asp-controller="ShoppingCarts" asp-action="Delete" method="post">
+								<input type="hidden" name="id" value="@item.IdShoppingCart" />
+								<button type="submit" class=" bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">Delete</button>
+							</form>
+						</td>
+					</tr>
+				}
+
+			</tbody>
+		</table>
+	</div>
+
+	<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
+		<div class="flex-w flex-m m-r-20 m-tb-5">
+			<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="coupon" placeholder="Coupon Code">
+
+			<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
+				Apply coupon
+			</div>
+		</div>
+
+		<div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
+			<a asp-controller="ShoppingCarts" asp-action="CheckOut">
+				Checkout
+			</a>
+		</div>
+	</div>
+</div>

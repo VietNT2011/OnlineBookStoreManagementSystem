@@ -23,9 +23,12 @@ namespace AgileBookStore.Controllers
 
 		public async Task<IActionResult> ProductAllAsync(int? page)
 		{
-			int pageSize = 16; 
-			
+			int pageSize = 16;
+
 			List<Product> products = await _context.Products.ToListAsync();
+
+			Random rng = new Random();
+			products = products.OrderBy(x => rng.Next()).ToList();
 
 			int pageNumber = page ?? 1; 
 			IPagedList<Product> pagedList = products.ToPagedList(pageNumber, pageSize);

@@ -1,0 +1,144 @@
+﻿<div class="container">
+    <h2>Checkout</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <form onsubmit="event.preventDefault(); onSubmit()" method="post">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Product.NameProduct</td>
+                                <td>@item.Product.Price.ToString("N0") VND</td>
+                                <td>@item.Quantity</td>
+                                @{
+                                    int total = item.Quantity * item.Product.Price;
+                                }
+                                <td>@total.ToString("N0") VND</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="form-group">
+                    @{
+                        int Total = 0;
+                    }
+                    @foreach (var item in Model)
+                    {
+                        Total += item.Quantity * item.Product.Price;
+                    }
+                    <label for="total">Total: </label>
+                    <input type="text" class="form-control" id="total" name="total" value="@Total.ToString("N0") VND" readonly>
+                </div>
+                <h4>Shipping Information</h4>
+                <div class="form-group">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" class="form-control" id="fullName" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes:</label>
+                    <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Place Order</button>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        // Hàm này được gọi khi form được submit
+        function onSubmit() {
+            // Lấy tất cả các trường thông tin từ form
+            var fullName = document.getElementById("fullName").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var email = document.getElementById("email").value;
+            var notes = document.getElementById("notes").value;
+            var total = document.getElementById("total").value;
+
+            // Lấy thông tin chi tiết sản phẩm từ bảng
+            var products = [];
+            var table = document.querySelector("table");
+            var rows = table.querySelectorAll("tr");
+            rows.forEach(function (row) {
+                var cells = row.querySelectorAll("td");
+                if (cells.length === 4) {
+                    var product = {
+                        name: cells[0].innerText,
+                        price: cells[1].innerText,
+                        quantity: cells[2].innerText,
+                        total: cells[3].innerText
+                    };
+                    products.push(product);
+                }
+            });
+
+            Swal.fire({
+                title: 'Order Summary',
+                html: `
+                            <p><strong>Shipping Information:</strong></p>
+                            <p>Full Name: ${fullName}</p>
+                            <p>Phone Number: ${phoneNumber}</p>
+                            <p>Email: ${email}</p>
+                            <p>Notes: ${notes}</p>
+                            <hr>
+                            <p><strong>Order Details:</strong></p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${products.map(product => `
+                                        <tr>
+                                            <td>${product.name}</td>
+                                            <td>${product.price}</td>
+                                            <td>${product.quantity}</td>
+                                            <td>${product.total}</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                            <hr>
+                            <p><strong>Total:</strong> ${total}</p>
+                        `,
+                confirmButtonText: 'Place Order'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Gọi hành động xóa giỏ hàng khi đặt hàng thành công
+                    deleteShoppingCartItems();
+                    // Điều hướng đến trang "Product/ProductAll"
+                    window.location.href = "/Product/ProductAll";
+                }
+            });
+        }
+
+        // Hàm gọi hành động xóa giỏ hàng
+        function deleteShoppingCartItems() {
+            // Sử dụng AJAX để gọi hành động xóa giỏ hàng
+            $.post("/ShoppingCarts/DeleteAll", function (data) {
+                // Xử lý kết quả nếu cần
+            });
+        }
+    </script>
+}

@@ -262,3 +262,8 @@ C:\Users\ntv14\Desktop\OnlineBookStoreManagementSystem\AgileBookStore\bin\Debug\
 C:\Users\ntv14\Desktop\OnlineBookStoreManagementSystem\AgileBookStore\obj\Debug\net8.0\AgileBookStore.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\ntv14\Desktop\OnlineBookStoreManagementSystem\AgileBookStore\bin\Debug\net8.0\X.PagedList.dll
 C:\Users\ntv14\Desktop\OnlineBookStoreManagementSystem\AgileBookStore\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll
+C:\Users\ntv14\Desktop\OnlineBookStoreManagementSystem\AgileBookStore\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\ntv14\Desktop\OnlineBookStoreManagementSystem\AgileBookStore\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\ntv14\Desktop\OnlineBookStoreManagementSystem\AgileBookStore\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\ntv14\Desktop\OnlineBookStoreManagementSystem\AgileBookStore\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\ntv14\Desktop\OnlineBookStoreManagementSystem\AgileBookStore\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
