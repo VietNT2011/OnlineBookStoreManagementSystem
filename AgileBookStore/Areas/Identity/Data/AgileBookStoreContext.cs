@@ -15,7 +15,10 @@ public class AgileBookStoreContext : IdentityDbContext<AgileBookStoreUser>
 	public DbSet<Product> Products { get; set; }
 	public DbSet<Category> Categories { get; set; }
 	public DbSet<ShoppingCart> ShoppingCarts { get; set; }
-	protected override void OnModelCreating(ModelBuilder builder)
+    public DbSet<Wishlist> Wishlists { get; set; }
+    public DbSet<ReviewComment> ReviewComments { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
         // Customize the ASP.NET Identity model and override the defaults if needed.

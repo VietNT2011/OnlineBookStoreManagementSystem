@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AgileBookStore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+97115a1c2a81bafe2d4b316238ec68049f240afc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e51893b6d2700155740a2add6df14310a3780f7b")]
 [assembly: System.Reflection.AssemblyProductAttribute("AgileBookStore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AgileBookStore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

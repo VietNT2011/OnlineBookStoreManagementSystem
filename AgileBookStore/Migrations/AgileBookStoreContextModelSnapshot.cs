@@ -154,6 +154,40 @@ namespace AgileBookStore.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("AgileBookStore.Models.ReviewComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImgAvatar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProductIdProduct")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("star")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductIdProduct");
+
+                    b.ToTable("ReviewComments");
+                });
+
             modelBuilder.Entity("AgileBookStore.Models.ShoppingCart", b =>
                 {
                     b.Property<int>("IdShoppingCart")
@@ -184,6 +218,32 @@ namespace AgileBookStore.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("ShoppingCarts");
+                });
+
+            modelBuilder.Entity("AgileBookStore.Models.Wishlist", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("IdUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProductIdProduct")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductIdProduct");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Wishlists");
                 });
 
             modelBuilder.Entity("CategoryProduct", b =>
@@ -338,7 +398,31 @@ namespace AgileBookStore.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("AgileBookStore.Models.ReviewComment", b =>
+                {
+                    b.HasOne("AgileBookStore.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductIdProduct");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("AgileBookStore.Models.ShoppingCart", b =>
+                {
+                    b.HasOne("AgileBookStore.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductIdProduct");
+
+                    b.HasOne("AgileBookStore.Areas.Identity.Data.AgileBookStoreUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("AgileBookStore.Models.Wishlist", b =>
                 {
                     b.HasOne("AgileBookStore.Models.Product", "Product")
                         .WithMany()

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NwIVIYnUAI290+ZaPAzt3d1GR6x0335KqkAs/Pf1kHA=",
+  "Hash": "IDpUcpP4bYBKjxF3t7Le9bzjtzGgO39sG9+CigU29vg=",
   "Source": "AgileBookStore",
   "BasePath": "_content/AgileBookStore",
   "Mode": "Default",
@@ -4045,6 +4045,25 @@
       "OriginalItemSpec": "wwwroot\\images\\icons\\icon-prev.png"
     },
     {
+      "Identity": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\images\\icons\\location-dot-solid.svg",
+      "SourceId": "AgileBookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\",
+      "BasePath": "_content/AgileBookStore",
+      "RelativePath": "images/icons/location-dot-solid.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\icons\\location-dot-solid.svg"
+    },
+    {
       "Identity": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\images\\icons\\logo-01.png",
       "SourceId": "AgileBookStore",
       "SourceType": "Discovered",
@@ -4119,6 +4138,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\icons\\pin.png"
+    },
+    {
+      "Identity": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\images\\icons\\truck-arrow-right-solid.svg",
+      "SourceId": "AgileBookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\",
+      "BasePath": "_content/AgileBookStore",
+      "RelativePath": "images/icons/truck-arrow-right-solid.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\icons\\truck-arrow-right-solid.svg"
     },
     {
       "Identity": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\images\\item-cart-01.jpg",
