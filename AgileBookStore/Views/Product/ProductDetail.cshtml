@@ -43,25 +43,40 @@
 
 	<div class="col-md-6 col-lg-5 p-b-30">
 		<div class="p-r-50 p-t-5 p-lr-0-lg">
-			<h4 class="mtext-105 cl2 js-name-detail p-b-14">
-				@Model.NameProduct
-			</h4>
-
-			<span class="mtext-106 cl2">
-				@Model.Price
+			<span style="display: inline-block; background-color: aqua; padding: 3px; border-radius: 20px;">
+				<img width="35" height="35" src="https://img.icons8.com/fluency/96/instagram-check-mark.png" alt="instagram-check-mark" style="border-radius: 50%;" />
+				<span style="vertical-align: middle; color: dodgerblue">Authentic product</span>
+			</span>
+			
+			<span style="display: inline-block; background-color: yellow; padding: 3px; border-radius: 20px;">
+				<img width="35" height="35" src="https://img.icons8.com/fluency/48/rotate.png" alt="rotate" style="border-radius: 50%;" />
+				<span style="vertical-align: middle; color: dodgerblue">Exchange and return</span>
 			</span>
 
-			@foreach(var Category in Model.Categories)
-			{
-				<span class="mtext-106 cl2">
-					@Category
-				</span>
-			}
+			<div>
+				<h2 style="color: black; margin-top: 20px" id="productName" @* class="mtext-105 cl2 js-name-detail p-b-14" *@>
+					@Model.NameProduct
+				</h2>
+			</div>
+			<h4 style="color: black; margin-top: 20px" @* class="mtext-106 cl2" *@>
+				Price: @Model.Price.ToString("N0") VND
+			</h4>
 
-			<p class="stext-102 cl3 p-t-23">
-				@Model.Author
-			</p>
-
+			<div class="row">
+				<div class="col-md-12">
+					<h5 style ="color: black; margin-top: 20px" @* class="stext-102 cl3 p-t-23" *@>
+						Category:
+						@foreach (var cat in Model.Categories)
+						{
+							<a class="btn btn-link">@cat.Name</a>
+						}
+					</h5>
+				</div>
+			</div>
+			<h5 style="color: black; margin-top: 10px" @* class="stext-102 cl3 p-t-23 *@">
+				Author: @Model.Author
+			</h5>
+			<div id="averageStars" class="stext-102 cl3 p-t-23"></div>
 			<!--  -->
 			<div class="p-t-33">
 
@@ -74,7 +89,7 @@
 						</div>
 
 						<!-- Quantity -->
-						<input id="quantityInput" class="mtext-104 cl3 txt-center num-product" type="number" name="quantity" value="1">
+						<input id="quantityInput" class="mtext-104 cl3 txt-center num-product" type="number" name="quantity" value="1" min="1">
 
 						<!-- Increase -->
 						<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
@@ -83,20 +98,36 @@
 					</div>
 
 					<input type="hidden" id="idProduct" value="@Model.IdProduct"> 
+					@if (User.Identity.IsAuthenticated)
+					{
+						<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail" id="addToCartButton">
+							Add to cart
+						</button>
 
-					<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail" id="addToCartButton">
-						Add to cart
-					</button>
+						<button class=" flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+							Buy now
+						</button>
+					}
+					else
+					{
+						<form style="margin-top: 10px;" id="LoginForm" asp-area="Identity" asp-page="/Account/Login">
+							<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+								Add to cart
+							</button>
+						</form>
 
-					<button class=" flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-						Buy now
-					</button>
+						<form style="margin-top: 10px;" id="LoginForm" asp-area="Identity" asp-page="/Account/Login">
+							<button class=" flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+								Buy now
+							</button>
+						</form>
+					}
 				</div>
 			</div>
 
 			<div class="flex-w flex-m p-l-100 p-t-40 respon7">
 				<div class="flex-m bor9 p-r-10 m-r-11">
-					<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
+					<a href="#" id="wishlistButton" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
 						<i class="zmdi zmdi-favorite"></i>
 					</a>
 				</div>
@@ -116,139 +147,407 @@
 		</div>
 	</div>
 </div>
-@* <!--===============================================================================================-->
-<script src="~/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-<script src="~/vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-<script src="~/vendor/bootstrap/js/popper.js"></script>
-<script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-<script src="~/vendor/select2/select2.min.js"></script>
+<div class="bor10 m-t-50 p-t-43 p-b-40">
+	<!-- Tab01 -->
+	<div class="tab01">
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs" role="tablist">
+			<li class="nav-item p-b-10">
+				<a class="nav-link active" data-toggle="tab" href="#description" role="tab" aria-expanded="true">Description</a>
+			</li>
+
+			<li class="nav-item p-b-10">
+				<a class="nav-link" data-toggle="tab" href="#information" role="tab" aria-expanded="false">Additional information</a>
+			</li>
+
+			<li class="nav-item p-b-10">
+				<a class="nav-link" data-toggle="tab" href="#reviews" role="tab" aria-expanded="false">Reviews</a>
+			</li>
+		</ul>
+
+		<!-- Tab panes -->
+		<div class="tab-content p-t-43">
+			<!-- - -->
+			<div class="tab-pane fade active show" id="description" role="tabpanel" aria-expanded="true">
+				<div class="how-pos2 p-lr-15-md">
+					<p class="stext-102 cl6">
+						@Model.Description
+					</p>
+				</div>
+			</div>
+
+			<!-- - -->
+			<div class="tab-pane fade" id="information" role="tabpanel" aria-expanded="false">
+				<div class="row">
+					<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
+						<ul class="p-lr-28 p-lr-15-sm">
+							<li class="flex-w flex-t p-b-7">
+								<span class="stext-102 cl3 size-205">
+									Publisher
+								</span>
+
+								<span class="stext-102 cl6 size-206">
+									@Model.Publishing
+								</span>
+							</li>
+
+							<li class="flex-w flex-t p-b-7">
+								<span class="stext-102 cl3 size-205">
+									ISBN-13
+								</span>
+
+								<span class="stext-102 cl6 size-206">
+									9781501135467
+								</span>
+							</li>
+
+							<li class="flex-w flex-t p-b-7">
+								<span class="stext-102 cl3 size-205">
+									Method of delivery
+								</span>
+
+								<span class="stext-102 cl6 size-206">
+									Seller Delivery
+								</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- - -->
+			<div class="tab-pane fade" id="reviews" role="tabpanel" aria-expanded="false">
+				<div class="row">
+					<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
+						<div class="p-b-30 m-lr-15-sm">
+							<!-- Review -->
+							<div id="reviewSection" class="flex-w flex-t p-b-68">
+								@*
+								<div class="wrap-pic-s size-109 bor0 of-hidden m-r-18 m-t-6">
+									<img src="images/avatar-01.jpg" alt="AVATAR">
+								</div>
+
+								<div class="size-207">
+									<div class="flex-w flex-sb-m p-b-17">
+										<span class="mtext-107 cl2 p-r-20">
+											Ariana Grande
+										</span>
+
+										<span class="fs-18 cl11">
+											<i class="zmdi zmdi-star"></i>
+											<i class="zmdi zmdi-star"></i>
+											<i class="zmdi zmdi-star"></i>
+											<i class="zmdi zmdi-star"></i>
+											<i class="zmdi zmdi-star-half"></i>
+										</span>
+									</div>
+
+									<p class="stext-102 cl6">
+										Quod autem in homine praestantissimum atque optimum est, id deseruit. Apud ceteros autem philosophos
+									</p>
+								</div>
+								*@
+							</div>
+
+							<!-- Add review -->
+							<form class="w-full" id="reviewForm" method="post" action="/Reviews/AddReview">
+								<input type="hidden" name="productId" value="@Model.IdProduct" />
+
+								<h5 class="mtext-108 cl2 p-b-7">Add a review</h5>
+								<div class="flex-w flex-m p-t-50 p-b-23">
+									<span class="stext-102 cl3 m-r-16">Your Rating</span>
+									<span class="wrap-rating fs-18 cl11 pointer">
+										<i class="item-rating pointer zmdi zmdi-star-outline" data-value="1"></i>
+										<i class="item-rating pointer zmdi zmdi-star-outline" data-value="2"></i>
+										<i class="item-rating pointer zmdi zmdi-star-outline" data-value="3"></i>
+										<i class="item-rating pointer zmdi zmdi-star-outline" data-value="4"></i>
+										<i class="item-rating pointer zmdi zmdi-star-outline" data-value="5"></i>
+										<input class="dis-none" type="number" name="rating" id="ratingInput">
+									</span>
+								</div>
+
+								<div class="row p-b-25">
+									<div class="col-12 p-b-5">
+										<label class="stext-102 cl3" for="review">Your review</label>
+										<textarea class="size-110 bor8 stext-102 cl2 p-lr-20 p-tb-10" id="review" name="review"></textarea>
+									</div>
+								</div>
+
+								<button type="submit" class="flex-c-m stext-101 cl0 size-112 bg7 bor11 hov-btn3 p-lr-15 trans-04 m-b-10">
+									Submit
+								</button>
+							<form>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@await Component.InvokeAsync("RelatedProduct", new { categories = Model.Categories })
 <script>
-	$(".js-select2").each(function () {
-		$(this).select2({
-			minimumResultsForSearch: 20,
-			dropdownParent: $(this).next('.dropDownSelect2')
-		});
-	})
-</script>
-<!--===============================================================================================-->
-<script src="~/vendor/daterangepicker/moment.min.js"></script>
-<script src="~/vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-<script src="~/vendor/slick/slick.min.js"></script>
-<script src="~/js/slick-custom.js"></script>
-<!--===============================================================================================-->
-<script src="~/vendor/parallax100/parallax100.js"></script>
-<script>
-	$('.parallax100').parallax100();
-</script>
-<!--===============================================================================================-->
-<script src="~/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
-<script>
-	$('.gallery-lb').each(function () { // the containers for all your galleries
-		$(this).magnificPopup({
-			delegate: 'a', // the selector for gallery item
-			type: 'image',
-			gallery: {
-				enabled: true
-			},
-			mainClass: 'mfp-fade'
-		});
-	});
-</script>
-<!--===============================================================================================-->
-<script src="~/vendor/isotope/isotope.pkgd.min.js"></script>
-<!--===============================================================================================-->
-<script src="~/vendor/sweetalert/sweetalert.min.js"></script>
-<script>
-	$('.js-addwish-b2, .js-addwish-detail').on('click', function (e) {
-		e.preventDefault();
-	});
+	document.getElementById("addToCartButton").addEventListener("click", function () {
+		var quantity = document.getElementById("quantityInput").value;
+		var idProduct = document.getElementById("idProduct").value;
+		var productName = document.getElementById("productName").innerText;
 
-	$('.js-addwish-b2').each(function () {
-		var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
-		$(this).on('click', function () {
-			swal(nameProduct, "is added to wishlist !", "success");
-
-			$(this).addClass('js-addedwish-b2');
-			$(this).off('click');
-		});
-	});
-
-	$('.js-addwish-detail').each(function () {
-		var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
-
-		$(this).on('click', function () {
-			swal(nameProduct, "is added to wishlist !", "success");
-
-			$(this).addClass('js-addedwish-detail');
-			$(this).off('click');
-		});
-	});
-
-	/*---------------------------------------------*/
-
-	$('.js-addcart-detail').each(function () {
-		var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
-		$(this).on('click', function () {
-			swal(nameProduct, "is added to cart !", "success");
-		});
-	});
-
-</script>
-<!--===============================================================================================-->
-<script src="~/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-<script>
-	$('.js-pscroll').each(function () {
-		$(this).css('position', 'relative');
-		$(this).css('overflow', 'hidden');
-		var ps = new PerfectScrollbar(this, {
-			wheelSpeed: 1,
-			scrollingThreshold: 1000,
-			wheelPropagation: false,
-		});
-
-		$(window).on('resize', function () {
-			ps.update();
-		})
-	});
-</script>
-<!--===============================================================================================-->
-<script src="~/js/main.js"></script> *@
-<script>
-document.getElementById("addToCartButton").addEventListener("click", function() {
-	
-	var quantity = document.getElementById("quantityInput").value;
-	var idProduct = document.getElementById("idProduct").value;
-
-	
-	var data = {
-		Quantity: quantity,
-		IdProduct: idProduct
-	};
-
-	fetch('/Product/AddToCart', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify(data)
-	})
-	.then(response => {
-		if (!response.ok) {
-			throw new Error('Network response was not ok');
+		if (quantity == 0) {
+			Swal.fire({
+				icon: 'warning',
+				title: 'Warning',
+				text: 'You must select a quantity of at least 1.'
+			});
 		}
-		return response.json();
-	})
-	.then(data => {
-		
-		console.log('Add to cart successful');
-	})
-	.catch(error => {
-		
-		console.error('There was an error!', error);
+		else {
+			var data = {
+				Quantity: quantity,
+				IdProduct: idProduct
+			};
+
+			fetch('/Product/AddToCart', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(data)
+			})
+				.then(response => {
+					if (!response.ok) {
+						throw new Error('Network response was not ok');
+					}
+					// Hiển thị thông báo thành công bằng SweetAlert2
+					Swal.fire({
+						icon: 'success',
+						title: 'Success',
+						text: 'You have added ' + quantity + ' ' + productName + ' to your cart successfully!',
+						showCancelButton: true,
+						cancelButtonText: 'Close',
+						cancelButtonAriaLabel: 'Close',
+						confirmButtonText: 'Go to your cart',
+					}).then((result) => {
+						if (result.dismiss === Swal.DismissReason.confirm) {
+							window.location.href = '/ShoppingCarts/Index';
+						}
+					});
+				})
+				.catch(error => {
+					// Hiển thị thông báo lỗi bằng SweetAlert2
+					Swal.fire({
+						icon: 'error',
+						title: 'Error',
+						text: 'There was an error while adding the product to cart. Please try again later.',
+					});
+				});
+		}
 	});
-});
 </script>
+@section Scripts {
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+			function fetchReviewStats() {
+				var productId = @Model.IdProduct;
+				$.ajax({
+					type: "GET",
+					url: "/Reviews/GetReviewStats?productId=" + productId,
+					success: function (data) {
+						$("#averageStars").empty();
+
+						if (!data || typeof data.averageStars === 'undefined') {
+							console.warn("Không có dữ liệu đánh giá cho sản phẩm:", productId);
+							$('#averageStars').append('<span class="fs-18 cl11">No reviews yet</span>');
+							return;
+						}
+
+						var averageStars = data.averageStars.toFixed(1);
+						var starHtml = '';
+						starHtml += '<span class="fs-18 cl11">'
+						for (var i = 1; i <= 5; i++) {
+							if (i <= Math.round(data.averageStars)) {
+								starHtml += '<i class="zmdi zmdi-star"></i>';
+							} else {
+								starHtml += '<i class="zmdi zmdi-star-outline"></i>';
+							}
+						}
+						starHtml += '<span>'
+						starHtml += '<span> (' + data.totalComments + ' reviews)</span>';
+						$('#averageStars').append(starHtml);
+					},
+					error: function (xhr, status, error) {
+						console.error("Lỗi khi gửi yêu cầu Ajax:", error);
+					}
+				});
+			}
+
+			fetchReviewStats();
+
+
+			// Handle rating selection
+			$('.wrap-rating .item-rating').on('click', function () {
+				var value = $(this).data('value');
+				$('#ratingInput').val(value);
+				$('.wrap-rating .item-rating').removeClass('zmdi-star').addClass('zmdi-star-outline');
+				$(this).prevAll().addBack().removeClass('zmdi-star-outline').addClass('zmdi-star');
+			});
+
+			// Handle form submission via AJAX
+			$('#reviewForm').on('submit', function (e) {
+				e.preventDefault(); // Prevent the default form submission behavior
+
+				var formData = $(this).serialize(); // Serialize form data
+
+				$.ajax({
+					type: 'POST',
+					url: $(this).attr('action'),
+					data: formData,
+					success: function (response) {
+						if (response.success) {
+							// Reset form fields and ratings after successful submission
+							$('#review').val(''); // Clear review textarea
+							$('#ratingInput').val(''); // Clear rating input
+							$('.wrap-rating .item-rating').removeClass('zmdi-star').addClass('zmdi-star-outline'); // Reset the rating stars
+							Swal.fire({
+								title: 'Success!',
+								text: response.message,
+								icon: 'success',
+								confirmButtonText: 'OK'
+							});
+							fetchReviewStats();
+							
+							fetchReviews();
+						} else {
+							Swal.fire({
+								title: 'Error!',
+								text: response.message,
+								icon: 'error',
+								confirmButtonText: 'OK'
+							});
+						}
+					},
+					error: function (xhr, status, error) {
+						// Handle errors gracefully
+						Swal.fire({
+							title: 'An error occurred',
+							text: xhr.responseText,
+							icon: 'error',
+							confirmButtonText: 'OK'
+						});
+					}
+				});
+			});
+
+			function fetchReviews() {
+				var productId = @Model.IdProduct;
+
+				$.ajax({
+					type: "GET",
+					url: "/Reviews/GetReviews?productId=" + productId,
+					success: function (data) {
+						// Xóa dữ liệu cũ trước khi thêm dữ liệu mới
+						$("#reviewSection").empty();
+
+						// Thêm dữ liệu mới từ controller vào phần reviewSection
+						$.each(data, function (index, review) {
+							var starHtml = '';
+							for (var i = 0; i < review.star; i++) {
+								starHtml += '<i class="zmdi zmdi-star"></i>';
+							}
+
+							var reviewHtml = '<div class="wrap-pic-s size-109 bor0 of-hidden m-r-18 m-t-6">';
+							reviewHtml += '<img src="' + review.imgAvatar + '" alt="AVATAR">';
+							reviewHtml += '</div>';
+							reviewHtml += '<div class="size-207">';
+							reviewHtml += '<div class="flex-w flex-sb-m p-b-17">';
+							reviewHtml += '<span class="mtext-107 cl2 p-r-20">' + review.userName + '</span>';
+							reviewHtml += '<span class="fs-18 cl11">' + starHtml + '</span>';
+							reviewHtml += '</div>';
+							reviewHtml += '<p class="stext-102 cl6">' + review.comment + '</p>';
+							reviewHtml += '</div>';
+
+							$("#reviewSection").append(reviewHtml);
+						});
+					},
+					error: function (xhr, status, error) {
+						console.error("Lỗi khi gửi yêu cầu Ajax:", error);
+					}
+				});
+			}
+
+
+
+			fetchReviews();
+		});
+		$(document).ready(function () {
+			var productId = $('#idProduct').val();
+			var inWishlist = false; // Initial state, you might want to set this dynamically based on server data
+
+			$('#wishlistButton').click(function (event) {
+				event.preventDefault();
+
+				console.log('Product ID:', productId); // Debugging statement
+
+				if (inWishlist) {
+					deleteFromWishlist(productId);
+				} else {
+					addToWishlist(productId);
+				}
+
+				// Toggle the state
+				inWishlist = !inWishlist;
+
+				// Update the button tooltip and text based on the new state
+				if (inWishlist) {
+					//$(this).attr('data-tooltip', 'Remove from Wishlist');
+					$(this).find('i').removeClass('zmdi-favorite').addClass('zmdi-favorite-outline');
+				} else {
+					//$(this).attr('data-tooltip', 'Add to Wishlist');
+					$(this).find('i').removeClass('zmdi-favorite-outline').addClass('zmdi-favorite');
+				}
+			});
+
+			function addToWishlist(productId) {
+				$.ajax({
+					type: "POST",
+					url: "/Wishlist/AddToWishlist",
+					data: { productId: productId },
+					success: function (response) {
+						// Correct usage of SweetAlert2
+						Swal.fire({
+							title: 'Success!',
+							text: response,
+							icon: 'success'
+						});
+					},
+					error: function (xhr, status, error) {
+						if (xhr.responseText == "Product already exists in wishlist")
+							deleteFromWishlist(productId);
+					}
+				});
+			}
+
+			function deleteFromWishlist(productId) {
+				$.ajax({
+					type: "POST",
+					url: "/Wishlist/DeleteFromWishlist",
+					data: { productId: productId },
+					success: function (response) {
+						// Correct usage of SweetAlert2
+						Swal.fire({
+							title: 'Success!',
+							text: response,
+							icon: 'success'
+						});
+					},
+					error: function (xhr, status, error) {
+						if (xhr.responseText == "Product does not exist in wishlist")
+							addToWishlist(productId);
+					}
+				});
+			}
+		});
+	</script>
+}

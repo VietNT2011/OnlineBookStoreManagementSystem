@@ -23,9 +23,12 @@ namespace AgileBookStore.Controllers
 
 		public async Task<IActionResult> ProductAllAsync(int? page)
 		{
-			int pageSize = 16; 
-			
+			int pageSize = 16;
+
 			List<Product> products = await _context.Products.ToListAsync();
+
+			Random rng = new Random();
+			products = products.OrderBy(x => rng.Next()).ToList();
 
 			int pageNumber = page ?? 1; 
 			IPagedList<Product> pagedList = products.ToPagedList(pageNumber, pageSize);
@@ -36,16 +39,19 @@ namespace AgileBookStore.Controllers
 
 		public IActionResult ProductDetail(int id)
 		{
-			
-			var product = _context.Products.FirstOrDefault(p => p.IdProduct == id);
+			var product = _context.Products
+								  .Include(p => p.Categories)  // Include the related categories
+								  .FirstOrDefault(p => p.IdProduct == id);
+
 			if (product == null)
 			{
-				return NotFound(); 
+				return NotFound();
 			}
+
 			return View(product);
 		}
 
-        public async Task<IActionResult> ProductByCategory(int categoryId, int? page)
+		public async Task<IActionResult> ProductByCategory(int categoryId, int? page)
         {
             int pageSize = 16;
 

@@ -56,7 +56,7 @@
 
 						@if (User.Identity.IsAuthenticated)
 						{
-							<span style="color: white; margin-top: 10px;">Hello @User.Identity.Name</span>
+							<span style="color: white; margin-top: 10px;">@UserManager.GetUserAsync(User).Result.Name</span>
 							<div style="width: 10px;"></div>
 							<form id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
 								<button style="color: white; margin-top: 10px;" type="submit">Log out</button>
@@ -81,8 +81,8 @@
 				<nav class="limiter-menu-desktop container">
 
 					<!-- Logo desktop -->
-					<a href="#" class="logo">
-						<img src="~/images/icons/logo-01.png" alt="IMG-LOGO">
+					<a href="#" class="logo" style="height: 150px; width: 200px;">
+						<img src="~/images/shoplogo.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -121,17 +121,33 @@
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
-					@* 	<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							<i class="zmdi zmdi-search"></i>
-						</div> *@
+						@if (User.Identity.IsAuthenticated)
+						{
+							<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+								<i class="zmdi zmdi-shopping-cart"></i>
+							</div>
 
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
-							<i class="zmdi zmdi-shopping-cart"></i>
-						</div>
+							<a asp-controller="WishList" asp-action="WishListAll" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+								<i class="zmdi zmdi-favorite-outline"></i>
+							</a>
+							<div style="width: 10px;"></div>
+							<a asp-area="Identity" asp-page="/Account/Manage/index">
+								<img src="@UserManager.GetUserAsync(User).Result.ImgAvatar" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 3px solid black;" />
+							</a>
+						}
+						else
+						{
+							<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti " data-notify="0">
+								<a asp-area="Identity" asp-page="/Account/Login">
+									<i class="zmdi zmdi-shopping-cart"></i>
+								</a>
+							</div>
 
-						<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
-							<i class="zmdi zmdi-favorite-outline"></i>
-						</a>
+							<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+								<i class="zmdi zmdi-favorite-outline"></i>
+							</a>
+						}
+
 					</div>
 				</nav>
 			</div>
@@ -155,7 +171,9 @@
 	</header>
 
 	<!-- Cart -->
-	<div class="wrap-header-cart js-panel-cart">
+	@await Component.InvokeAsync("QuickCart")
+
+	@* <div class="wrap-header-cart js-panel-cart">
 		<div class="s-full js-hide-cart"></div>
 
 		<div class="header-cart flex-col-l p-l-65 p-r-25">
@@ -237,7 +255,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> *@
 
 
 
@@ -452,39 +470,53 @@
 	<!--===============================================================================================-->
 	<script src="~/vendor/sweetalert/sweetalert.min.js"></script>
 	<script>
-		$('.js-addwish-b2').on('click', function (e) {
-			e.preventDefault();
-		});
+		// $('.js-addwish-b2').on('click', function (e) {
+		// 	e.preventDefault();
+		// });
 
-		$('.js-addwish-b2').each(function () {
-			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
-			$(this).on('click', function () {
-				swal(nameProduct, "is added to wishlist !", "success");
+		// $('.js-addwish-b2').each(function () {
+		// 	var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+		// 	$(this).on('click', function () {
+		// 		swal(nameProduct, "is added to wishlist !", "success");
 
-				$(this).addClass('js-addedwish-b2');
-				$(this).off('click');
-			});
-		});
+		// 		$(this).addClass('js-addedwish-b2');
+		// 		$(this).off('click');
+		// 	});
+		// });
 
-		$('.js-addwish-detail').each(function () {
-			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+		// $('.js-addwish-detail').each(function () {
+		// 	var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
 
-			$(this).on('click', function () {
-				swal(nameProduct, "is added to wishlist !", "success");
+		// 	$(this).on('click', function () {
+		// 		swal(nameProduct, "is added to wishlist !", "success");
 
-				$(this).addClass('js-addedwish-detail');
-				$(this).off('click');
-			});
-		});
+		// 		$(this).addClass('js-addedwish-detail');
+		// 		$(this).off('click');
+		// 	});
+		// });
 
 		/*---------------------------------------------*/
 
-		$('.js-addcart-detail').each(function () {
-			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
-			$(this).on('click', function () {
-				swal(nameProduct, "is added to cart !", "success");
-			});
-		});
+		// $('.js-addcart-detail').each(function () {
+		// 	var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+		// 	$(this).on('click', function () {
+		// 		swal({
+		// 			title: "Custom Title",
+		// 			text: nameProduct + " is added to cart !",
+		// 			icon: "success",
+		// 			buttons: {
+		// 				close: "Close",
+		// 				cart: "Go to your cart"
+		// 			}
+		// 		}).then((value) => {
+		// 			if (value === "cart") {
+		// 				window.location.href = '/ShoppingCarts/Index';
+		// 			} else {
+		// 				location.reload();
+		// 			}
+		// 		});
+		// 	});
+		// });
 
 	</script>
 	<!--===============================================================================================-->
