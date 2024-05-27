@@ -30,9 +30,15 @@ namespace AgileBookStore.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DayOfBirth")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -41,11 +47,20 @@ namespace AgileBookStore.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("Gender")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImgAvatar")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -103,6 +118,31 @@ namespace AgileBookStore.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("AgileBookStore.Models.Order", b =>
+                {
+                    b.Property<string>("OrderId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPaid")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("OrderId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Orders");
+                });
+
             modelBuilder.Entity("AgileBookStore.Models.Product", b =>
                 {
                     b.Property<int>("IdProduct")
@@ -154,6 +194,40 @@ namespace AgileBookStore.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("AgileBookStore.Models.ReviewComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImgAvatar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProductIdProduct")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("star")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductIdProduct");
+
+                    b.ToTable("ReviewComments");
+                });
+
             modelBuilder.Entity("AgileBookStore.Models.ShoppingCart", b =>
                 {
                     b.Property<int>("IdShoppingCart")
@@ -168,6 +242,9 @@ namespace AgileBookStore.Migrations
                     b.Property<int>("IdProduct")
                         .HasColumnType("int");
 
+                    b.Property<string>("OrderId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int?>("ProductIdProduct")
                         .HasColumnType("int");
 
@@ -179,11 +256,39 @@ namespace AgileBookStore.Migrations
 
                     b.HasKey("IdShoppingCart");
 
+                    b.HasIndex("OrderId");
+
                     b.HasIndex("ProductIdProduct");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("ShoppingCarts");
+                });
+
+            modelBuilder.Entity("AgileBookStore.Models.Wishlist", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("IdUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProductIdProduct")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductIdProduct");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Wishlists");
                 });
 
             modelBuilder.Entity("CategoryProduct", b =>
@@ -338,7 +443,44 @@ namespace AgileBookStore.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("AgileBookStore.Models.Order", b =>
+                {
+                    b.HasOne("AgileBookStore.Areas.Identity.Data.AgileBookStoreUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("AgileBookStore.Models.ReviewComment", b =>
+                {
+                    b.HasOne("AgileBookStore.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductIdProduct");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("AgileBookStore.Models.ShoppingCart", b =>
+                {
+                    b.HasOne("AgileBookStore.Models.Order", null)
+                        .WithMany("ShoppingCarts")
+                        .HasForeignKey("OrderId");
+
+                    b.HasOne("AgileBookStore.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductIdProduct");
+
+                    b.HasOne("AgileBookStore.Areas.Identity.Data.AgileBookStoreUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("AgileBookStore.Models.Wishlist", b =>
                 {
                     b.HasOne("AgileBookStore.Models.Product", "Product")
                         .WithMany()
@@ -417,6 +559,11 @@ namespace AgileBookStore.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("AgileBookStore.Models.Order", b =>
+                {
+                    b.Navigation("ShoppingCarts");
                 });
 #pragma warning restore 612, 618
         }

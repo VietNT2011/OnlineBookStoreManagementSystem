@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using AgileBookStore.Data;
 using AgileBookStore.Areas.Identity.Data;
 using AgileBookStore.Models;
+using AgileBookStore.Controllers;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("AgileBookStoreContextConnection") ?? throw new InvalidOperationException("Connection string 'AgileBookStoreContextConnection' not found.");
 
@@ -18,6 +19,10 @@ builder.Services.AddRazorPages();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
 
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,6 +32,12 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+};
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
