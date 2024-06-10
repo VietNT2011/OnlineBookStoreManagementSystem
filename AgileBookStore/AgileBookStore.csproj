@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+<<<<<<< Updated upstream
+=======
+    <PackageReference Include="MailKit" Version="4.6.0" />
+>>>>>>> Stashed changes
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.4" />

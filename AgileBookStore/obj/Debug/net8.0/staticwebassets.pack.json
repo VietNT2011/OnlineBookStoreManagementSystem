@@ -1057,6 +1057,13 @@
       "PackagePath": "staticwebassets\\uploads\\Sơdolopmucthietke.drawio (3).png"
     },
     {
+<<<<<<< Updated upstream
+=======
+      "Id": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\uploads\\avatarmeowmeow.jpg",
+      "PackagePath": "staticwebassets\\uploads\\avatarmeowmeow.jpg"
+    },
+    {
+>>>>>>> Stashed changes
       "Id": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\uploads\\pompom1.png",
       "PackagePath": "staticwebassets\\uploads\\pompom1.png"
     },

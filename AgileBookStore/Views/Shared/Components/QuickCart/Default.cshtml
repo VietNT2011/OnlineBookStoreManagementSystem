@@ -61,4 +61,55 @@
 			</div>
 		</div>
 	</div>
+<<<<<<< Updated upstream
 </div>
+=======
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	function fetchCartItems() {
+		$.ajax({
+			url: '@Url.Action("RefeshQuickCart", "ShoppingCarts")', // Update with your controller name
+			type: 'GET',
+			success: function (data) {
+				console.log("rf");
+				updateCartView(data);
+			},
+			error: function (error) {
+				console.error('Error fetching cart items:', error);
+			}
+		});
+	}
+
+	function updateCartView(cartItems) {
+		let cartItemsHtml = '';
+		let total = 0;
+
+		cartItems.forEach(function (item) {
+			total += item.quantity * item.product.price;
+			cartItemsHtml += `
+					<li class="header-cart-item flex-w flex-t m-b-12">
+						<div class="header-cart-item-img">
+							<img src="${item.product.imageurl1}" alt="IMG">
+						</div>
+						<div class="header-cart-item-txt p-t-8">
+							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								${item.product.nameProduct}
+							</a>
+							<span class="header-cart-item-info" style="color: red;">
+								${item.quantity} X ${item.product.price.toLocaleString()} VND
+							</span>
+						</div>
+					</li>`;
+		});
+
+		$('.header-cart-wrapitem').html(cartItemsHtml);
+		$('.header-cart-total').text('Total: ' + total.toLocaleString() + ' VND');
+	}
+
+	$(document).ready(function () {
+		fetchCartItems();
+		setInterval(fetchCartItems, 4000);
+	});
+</script>
+>>>>>>> Stashed changes

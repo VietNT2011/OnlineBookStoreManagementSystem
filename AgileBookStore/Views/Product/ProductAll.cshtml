@@ -315,19 +315,54 @@
 			}
 		});
 	}
+<<<<<<< Updated upstream
 	
+=======
+
+
+	function checkWishlistStatus(productId) {
+		$.ajax({
+			type: "POST",
+			url: "/Wishlist/Exist", // Thay thế 'YourController' bằng tên controller thực tế của bạn
+			data: { productId: productId },
+			success: function (response) {
+				var icon1 = document.getElementById("icon-heart1-" + productId);
+				var icon2 = document.getElementById("icon-heart2-" + productId);
+
+				if (response === "Product in wishlist") {
+					icon1.style.display = "none";
+					icon2.style.display = "inline-block";
+				} else {
+					icon1.style.display = "inline-block";
+					icon2.style.display = "none";
+				}
+			},
+			error: function (xhr, status, error) {
+				swal("Error!", xhr.responseText, "error");
+			}
+		});
+	}
+>>>>>>> Stashed changes
 
 	function toggleWishlist(productId) {
 		var icon1 = document.getElementById("icon-heart1-" + productId);
 		var icon2 = document.getElementById("icon-heart2-" + productId);
 
 		if (icon1.style.display === "none") {
+<<<<<<< Updated upstream
 			// Nếu icon 1 không hiển thị, chuyển thành icon 1 và gửi yêu cầu xóa khỏi wishlist
+=======
+			// Nếu icon 1 không hiển thị, chuyển thành icon 1 và gửi yêu cầu thêm vào wishlist
+>>>>>>> Stashed changes
 			icon1.style.display = "inline-block";
 			icon2.style.display = "none";
 			deleteFromWishlist(productId);
 		} else {
+<<<<<<< Updated upstream
 			// Ngược lại, chuyển thành icon 2 và gửi yêu cầu thêm vào wishlist
+=======
+			// Nếu icon 1 hiển thị, chuyển thành icon 2 và gửi yêu cầu xóa khỏi wishlist
+>>>>>>> Stashed changes
 			icon1.style.display = "none";
 			icon2.style.display = "inline-block";
 			addToWishlist(productId);
@@ -335,29 +370,43 @@
 	}
 
 	function addToWishlist(productId) {
+<<<<<<< Updated upstream
 		// Gửi yêu cầu thêm vào danh sách mong muốn
+=======
+>>>>>>> Stashed changes
 		$.ajax({
 			type: "POST",
 			url: "/Wishlist/AddToWishlist",
 			data: { productId: productId },
 			success: function (response) {
+<<<<<<< Updated upstream
 				// Xử lý khi thành công, ví dụ: hiển thị swal
 				swal("Success!", response, "success");
 			},
 			error: function (xhr, status, error) {
 				// Xử lý khi có lỗi, ví dụ: hiển thị swal với thông báo lỗi
 				swal("Error!", xhr.responseText, "error");
+=======
+				console.log("success", response);
+			},
+			error: function (xhr, status, error) {
+				console.log("error", xhr.responseText);
+>>>>>>> Stashed changes
 			}
 		});
 	}
 
 	function deleteFromWishlist(productId) {
+<<<<<<< Updated upstream
 		// Gửi yêu cầu xóa khỏi danh sách mong muốn
+=======
+>>>>>>> Stashed changes
 		$.ajax({
 			type: "POST",
 			url: "/Wishlist/DeleteFromWishlist",
 			data: { productId: productId },
 			success: function (response) {
+<<<<<<< Updated upstream
 				// Xử lý khi thành công, ví dụ: hiển thị swal
 				swal("Success!", response, "success");
 			},
@@ -367,4 +416,23 @@
 			}
 		});
 	}
+=======
+				console.log("success", response);
+			},
+			error: function (xhr, status, error) {
+				console.log("success", response);
+			}
+		});
+	}
+
+	// Kiểm tra trạng thái của sản phẩm trong wishlist khi trang được tải
+	$(document).ready(function () {
+	@foreach (var product in Model)
+	{
+		<text>
+				checkWishlistStatus(@product.IdProduct);
+		</text>
+	}
+	});
+>>>>>>> Stashed changes
 </script>

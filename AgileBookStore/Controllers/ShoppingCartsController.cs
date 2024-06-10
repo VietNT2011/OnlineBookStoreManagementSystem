@@ -157,5 +157,45 @@ namespace AgileBookStore.Controllers
             }
             return Unauthorized();
         }
+<<<<<<< Updated upstream
     }
+=======
+		public IActionResult RefeshQuickCart()
+		{
+			var user = HttpContext.User;
+			if (user.Identity.IsAuthenticated)
+			{
+				var claimsPrincipal = user as ClaimsPrincipal;
+				if (claimsPrincipal != null)
+				{
+					var currentUserId = _userManager.GetUserId(claimsPrincipal);
+					var shoppingCartItems = _Context.ShoppingCarts
+						.Where(cart => cart.Id == currentUserId)
+						.ToList();
+					var shoppingCartViewModels = new List<ShoppingCartViewModel>();
+
+					foreach (var cartItem in shoppingCartItems)
+					{
+						var product = _Context.Products.FirstOrDefault(p => p.IdProduct == cartItem.IdProduct);
+
+						if (product != null)
+						{
+							var shoppingCartViewModel = new ShoppingCartViewModel
+							{
+								Product = product,
+								Quantity = cartItem.Quantity
+							};
+
+							shoppingCartViewModels.Add(shoppingCartViewModel);
+						}
+					}
+					shoppingCartViewModels.Reverse();
+					return Json(shoppingCartViewModels);
+				}
+			}
+
+			return Json(new List<ShoppingCartViewModel>());
+		}
+	}
+>>>>>>> Stashed changes
 }

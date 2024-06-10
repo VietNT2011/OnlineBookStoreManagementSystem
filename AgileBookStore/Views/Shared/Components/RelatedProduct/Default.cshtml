@@ -1,5 +1,9 @@
 ﻿@model IEnumerable<AgileBookStore.Models.Product>
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 <!-- Related Products -->
 <section class="sec-relate-product bg0 p-t-45 p-b-105">
 	<div class="container">
@@ -19,6 +23,7 @@
 						<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
 							<div class="block2">
 								<div class="block2-pic hov-img0">
+<<<<<<< Updated upstream
 									<img src="@Url.Content(product.imageurl1)" alt="Product Image">
 								</div>
 
@@ -36,6 +41,30 @@
 										<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
 											<img class="icon-heart1 dis-block trans-04" src="~/images/icons/icon-heart-01.png" alt="ICON">
 											<img class="icon-heart2 dis-block trans-04 ab-t-l" src="~/images/icons/icon-heart-02.png" alt="ICON">
+=======
+									<img src="@product.imageurl1" alt="Product Image">
+
+									<a asp-controller="Product" asp-action="ProductDetail" asp-route-id="@product.IdProduct" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
+										View Detail
+									</a>
+								</div>
+
+								<div class="block2-txt flex-w flex-t p-t-14" style="flex-grow: 1;">
+									<div class="block2-txt-child1 flex-col-l" style="flex-grow: 1;">
+										<a href="#" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6" style="color: black;">
+											<h5 style="margin: 0;">@product.NameProduct</h5>
+										</a>
+										<p class="stext-105 cl3" style="color: red;">
+											@product.Price.ToString("N0") VND
+										</p>
+										<div style="margin-top: -25px" id="averageStars-@product.IdProduct" class="stext-102 cl3 p-t-23" data-product-id="@product.IdProduct"></div>
+										<span style="color: green;"><img src="/images/icons/truck-arrow-right-solid.svg" style="width: 20px; height: auto;" />Express shipping  <img src="/images/icons/location-dot-solid.svg" style="width: 10px; height: auto;" /> TP.HCM</span>
+									</div>
+									<div class="block2-txt-child2 flex-r p-t-3">
+										<a class="btn-addwish-b2 dis-block pos-relative js-addwish" id="@product.IdProduct" onclick="toggleWishlist(@product.IdProduct)">
+											<img class="icon-heart1 dis-block trans-04" src="/images/icons/icon-heart-01.png" id="icon-heart1-@product.IdProduct">
+											<img class="icon-heart2 dis-block trans-04 ab-t-l" src="/images/icons/icon-heart-02.png" id="icon-heart2-@product.IdProduct" @* style="display: none;" *@>
+>>>>>>> Stashed changes
 										</a>
 									</div>
 								</div>
@@ -51,5 +80,126 @@
 		</div>
 	</div>
 </section>
+<<<<<<< Updated upstream
 
+=======
+<script>
+	$(document).ready(function () {
+		$('[id^=averageStars-]').each(function () {
+			var productId = $(this).data('product-id');
+			fetchReviewStats(productId, this);
+		});
+	});
+
+	function fetchReviewStats(productId, targetElement) {
+		$.ajax({
+			type: "GET",
+			url: "/Reviews/GetReviewStats?productId=" + productId,
+			success: function (data) {
+				$(targetElement).empty();
+
+				if (!data || typeof data.averageStars === 'undefined') {
+					console.warn("Không có dữ liệu đánh giá cho sản phẩm:", productId);
+					$(targetElement).append('<span class="fs-18 cl11">No reviews yet</span>');
+					return;
+				}
+
+				var averageStars = data.averageStars.toFixed(1);
+				var starHtml = '<span class="fs-18 cl11">';
+				for (var i = 1; i <= 5; i++) {
+					if (i <= Math.round(data.averageStars)) {
+						starHtml += '<i class="zmdi zmdi-star"></i>';
+					} else {
+						starHtml += '<i class="zmdi zmdi-star-outline"></i>';
+					}
+				}
+				starHtml += '</span><span> (' + data.totalComments + ' reviews)</span>';
+				$(targetElement).append(starHtml);
+			},
+			error: function (xhr, status, error) {
+				console.error("Lỗi khi gửi yêu cầu Ajax:", error);
+			}
+		});
+	}
+     
+
+    function checkWishlistStatus(productId) {
+        $.ajax({
+            type: "POST",
+            url: "/Wishlist/Exist", // Thay thế 'YourController' bằng tên controller thực tế của bạn
+            data: { productId: productId },
+            success: function (response) {
+                var icon1 = document.getElementById("icon-heart1-" + productId);
+                var icon2 = document.getElementById("icon-heart2-" + productId);
+
+                if (response === "Product in wishlist") {
+                    icon1.style.display = "none";
+                    icon2.style.display = "inline-block";
+                } else {
+                    icon1.style.display = "inline-block";
+                    icon2.style.display = "none";
+                }
+            },
+            error: function (xhr, status, error) {
+                swal("Error!", xhr.responseText, "error");
+            }
+        });
+    }
+
+    function toggleWishlist(productId) {
+        var icon1 = document.getElementById("icon-heart1-" + productId);
+        var icon2 = document.getElementById("icon-heart2-" + productId);
+
+        if (icon1.style.display === "none") {
+            // Nếu icon 1 không hiển thị, chuyển thành icon 1 và gửi yêu cầu thêm vào wishlist
+            icon1.style.display = "inline-block";
+            icon2.style.display = "none";
+            deleteFromWishlist(productId);
+        } else {
+            // Nếu icon 1 hiển thị, chuyển thành icon 2 và gửi yêu cầu xóa khỏi wishlist
+            icon1.style.display = "none";
+            icon2.style.display = "inline-block";
+            addToWishlist(productId);
+        }
+    }
+
+    function addToWishlist(productId) {
+        $.ajax({
+            type: "POST",
+            url: "/Wishlist/AddToWishlist",
+            data: { productId: productId },
+            success: function (response) {
+                console.log("success", response);
+            },
+            error: function (xhr, status, error) {
+                console.log("error", xhr.responseText);
+            }
+        });
+    }
+
+    function deleteFromWishlist(productId) {
+        $.ajax({
+            type: "POST",
+            url: "/Wishlist/DeleteFromWishlist",
+            data: { productId: productId },
+            success: function (response) {
+                console.log("success", response);
+            },
+            error: function (xhr, status, error) {
+                console.log("success", response);
+            }
+        });
+    }
+
+    // Kiểm tra trạng thái của sản phẩm trong wishlist khi trang được tải
+    $(document).ready(function () {
+    @foreach (var product in Model)
+    {
+        <text>
+                checkWishlistStatus(@product.IdProduct);
+        </text>
+    }
+    });
+</script>
+>>>>>>> Stashed changes
 

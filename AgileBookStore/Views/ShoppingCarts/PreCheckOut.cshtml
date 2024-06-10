@@ -409,7 +409,11 @@
                 </div> <!-- end col -->
                 <div class="col">
                     <div class="text-end mt-2 mt-sm-0">
+<<<<<<< Updated upstream
                         <a href="#" class="btn btn-success">
+=======
+                        <a id="proceedButton" class="btn btn-success">
+>>>>>>> Stashed changes
                             <i class="mdi mdi-cart-outline me-1"></i> Procced
                         </a>
                     </div>
@@ -507,3 +511,45 @@
     <!-- end row -->
 
 </div>
+<<<<<<< Updated upstream
+=======
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<!-- SweetAlert JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.js"></script>
+@* <script>
+    $(document).ready(function () {
+        $('#proceedButton').on('click', function (event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: '/DeleteALL',
+                type: 'POST',
+                success: function (response) {
+                    // Show SweetAlert success message
+                    Swal.fire({
+                        title: 'Success',
+                        text: ' ',
+                        icon: 'success',
+                        confirmButtonText: 'Continue Shopping'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Redirect to Product/ProductAll when the button is clicked
+                            window.location.href = 'Product/ProductAll';
+                        }
+                    });
+                },
+                error: function (xhr, status, error) {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'An error occurred: ' + xhr.responseText,
+                        icon: 'error',
+                    });
+                }
+            });
+        });
+    });
+</script> *@
+>>>>>>> Stashed changes

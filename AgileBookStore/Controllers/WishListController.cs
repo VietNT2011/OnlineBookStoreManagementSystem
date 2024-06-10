@@ -30,6 +30,31 @@ namespace AgileBookStore.Controllers
 			return View(products);
 		}
 		[HttpPost]
+<<<<<<< Updated upstream
+=======
+		public async Task<IActionResult> Exist(int productId)
+		{
+			var product = await _context.Products.FirstOrDefaultAsync(p => p.IdProduct == productId);
+			if (product == null)
+			{
+				return NotFound("Product not found");
+			}
+			var userId = _userManager.GetUserId(User);
+
+			var wishlistItem = await _context.Wishlists.FirstOrDefaultAsync(w => w.IdUser == userId && w.Product.IdProduct == productId);
+
+			if (wishlistItem != null)
+			{
+				return Ok("Product in wishlist");
+			}
+			else
+			{
+				return Ok("Product not in wishlist");
+			}
+		}
+
+		[HttpPost]
+>>>>>>> Stashed changes
 		public async Task<IActionResult> AddToWishlist(int productId)
 		{
 			var product = await _context.Products.FirstOrDefaultAsync(p => p.IdProduct == productId);

@@ -123,7 +123,11 @@
 					<div class="wrap-icon-header flex-w flex-r-m">
 						@if (User.Identity.IsAuthenticated)
 						{
+<<<<<<< Updated upstream
 							<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+=======
+							<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="0">
+>>>>>>> Stashed changes
 								<i class="zmdi zmdi-shopping-cart"></i>
 							</div>
 
@@ -171,7 +175,14 @@
 	</header>
 
 	<!-- Cart -->
+<<<<<<< Updated upstream
 	@await Component.InvokeAsync("QuickCart")
+=======
+	
+		@await Component.InvokeAsync("QuickCart")
+	
+
+>>>>>>> Stashed changes
 
 	@* <div class="wrap-header-cart js-panel-cart">
 		<div class="s-full js-hide-cart"></div>

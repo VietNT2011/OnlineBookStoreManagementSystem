@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< Updated upstream
   "Hash": "R2rVB9l2wVKRNV82yegS3YLeipycwgOoS9Uio4CE1hQ=",
+=======
+  "Hash": "5nh3XmhPtiHIBlhNav7bxIE/EPWUj11FjFVRDr137Bs=",
+>>>>>>> Stashed changes
   "Source": "AgileBookStore",
   "BasePath": "_content/AgileBookStore",
   "Mode": "Default",
@@ -6171,6 +6175,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\uploads\\avatarmeowmeow.jpg",
+      "SourceId": "AgileBookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\",
+      "BasePath": "_content/AgileBookStore",
+      "RelativePath": "uploads/avatarmeowmeow.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\avatarmeowmeow.jpg"
     },
     {
       "Identity": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\uploads\\pompom1.png",
