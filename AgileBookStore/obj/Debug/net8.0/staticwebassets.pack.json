@@ -605,6 +605,10 @@
       "PackagePath": "staticwebassets\\images\\icons\\icon-prev.png"
     },
     {
+      "Id": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\images\\icons\\location-dot-solid.svg",
+      "PackagePath": "staticwebassets\\images\\icons\\location-dot-solid.svg"
+    },
+    {
       "Id": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\images\\icons\\logo-01.png",
       "PackagePath": "staticwebassets\\images\\icons\\logo-01.png"
     },
@@ -619,6 +623,10 @@
     {
       "Id": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\images\\icons\\pin.png",
       "PackagePath": "staticwebassets\\images\\icons\\pin.png"
+    },
+    {
+      "Id": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\images\\icons\\truck-arrow-right-solid.svg",
+      "PackagePath": "staticwebassets\\images\\icons\\truck-arrow-right-solid.svg"
     },
     {
       "Id": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\images\\item-cart-01.jpg",
@@ -755,6 +763,10 @@
     {
       "Id": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\images\\pucci.png",
       "PackagePath": "staticwebassets\\images\\pucci.png"
+    },
+    {
+      "Id": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\images\\shoplogo.png",
+      "PackagePath": "staticwebassets\\images\\shoplogo.png"
     },
     {
       "Id": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\images\\slide-01.jpg",
@@ -1041,6 +1053,17 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\uploads\\Sơdolopmucthietke.drawio (3).png",
+      "PackagePath": "staticwebassets\\uploads\\Sơdolopmucthietke.drawio (3).png"
+    },
+    {
+<<<<<<< Updated upstream
+=======
+      "Id": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\uploads\\avatarmeowmeow.jpg",
+      "PackagePath": "staticwebassets\\uploads\\avatarmeowmeow.jpg"
+    },
+    {
+>>>>>>> Stashed changes
       "Id": "C:\\Users\\ntv14\\Desktop\\OnlineBookStoreManagementSystem\\AgileBookStore\\wwwroot\\uploads\\pompom1.png",
       "PackagePath": "staticwebassets\\uploads\\pompom1.png"
     },

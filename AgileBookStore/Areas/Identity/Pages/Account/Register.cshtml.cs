@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using AgileBookStore.Services;
 
 namespace AgileBookStore.Areas.Identity.Pages.Account
 {
@@ -118,7 +119,7 @@ namespace AgileBookStore.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
-                user.UserName = Input.UserName;
+                user.Name = Input.UserName;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
@@ -136,9 +137,19 @@ namespace AgileBookStore.Areas.Identity.Pages.Account
                         pageHandler: null,
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
-
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                    //using mailkit class 
+					var emailSender = new MailKitEmailSender();
+					bool check  = await emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    List<string> errors = new List<string>();
+                    if (check) {
+                        errors.Add("true");
+                    }
+                    else
+                    {
+                        errors.Add("false");
+
+					}
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using AgileBookStore.Data;
 using AgileBookStore.Areas.Identity.Data;
 using AgileBookStore.Models;
+using AgileBookStore.Controllers;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("AgileBookStoreContextConnection") ?? throw new InvalidOperationException("Connection string 'AgileBookStoreContextConnection' not found.");
 
@@ -12,7 +13,15 @@ builder.Services.AddDefaultIdentity<AgileBookStoreUser>(options => options.SignI
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 builder.Services.AddRazorPages();
+
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
+
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -24,8 +33,15 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+};
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseSession();
 
 app.UseRouting();
 
@@ -35,11 +51,8 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-//app.MapControllerRoute(
-//        name: "productDetail",
-//        pattern: "Product/ProductDetail/{id}",
-//        defaults: new { controller = "Product", action = "ProductDetail" });
-
 app.MapRazorPages();
+
 SeedData.EnsurePopulated(app);
+
 app.Run();
